@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k+72n4w8_84enh)s^-()p&7bek+$5$4%^@&cg$hvl=zi2k1lyl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ingeniera.herokuapp.com']
+ALLOWED_HOSTS = ['ingeniera.herokuapp.com','localhost']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'Login',
+    'Archivo',
+    'Integrante',
 ]
 
 MIDDLEWARE = [
@@ -130,9 +132,14 @@ STATICFILES_DIRS = (
     BASE_DIR/ 'static',
 )
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'

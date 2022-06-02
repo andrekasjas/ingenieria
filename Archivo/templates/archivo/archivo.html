@@ -1,0 +1,26 @@
+{% extends 'Autenticacion/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'agregar_archivo' equipo %}" class="btn-flotante">Archivo</a>
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom:150px; ">
+            {% for archivo in archivoss %}
+            <div class="col-auto" style="margin-top: 2rem;">
+                <div class="card" style="width: 18rem; background-color: rgb(8, 60, 94);color: cornsilk;">
+                    <div class="card-body" style="text-align: center;">
+                        <h5 class="card-title h5">
+                            {{archivo.tarea|upper}}
+                        </h5>
+                        <p class="card-content">{{archivo.tipo}}</p>
+                        <p class="card-content">{{archivo.autor}}</p>
+                        <p class="card-content">{{archivo.estado}}</p>
+                        <p class="card-content">{{archivo.created}}</p>
+                        <p class="card-content">{{archivo.updated}}</p>
+                        <a class="btn btn-outline-info" href="{{archivo.nombre.url}}" download="archivo" role="button">Download</a>
+                    </div>
+                </div>
+            </div></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock  %}

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-k+72n4w8_84enh)s^-()p&7bek+$5$4%^@&cg$hvl=zi2k1lyl
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['ingeniera2.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,13 +83,13 @@ from decouple import config
 
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': dj_database_url.config(
-        default = config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    # 'default': dj_database_url.config(
+    #     default = config('DATABASE_URL')
+    # )
 }
 
 

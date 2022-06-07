@@ -26,14 +26,14 @@ def agregar_archivo(request, equipo_id):
             autor = formulario.cleaned_data.get('autor')
             estado = formulario.cleaned_data.get('estado')
             archivoc = request.FILES["url_archivo"]
-            handle_uploaded_file(archivoc)
-            url_archivo =  'static/archivos/'+archivoc.name
-            add = archivo.objects.create(nombre=url_archivo, tarea=tarea, tipo=tipo, equipo=holas, autor=autor, estado=estado)
+            #handle_uploaded_file(archivoc)
+            #url_archivo =  'static/archivos/'+archivoc.name
+            add = archivo.objects.create(nombre=archivoc, tarea=tarea, tipo=tipo, equipo=holas, autor=autor, estado=estado)
             add.save()
 
             try:
                 
-                return redirect('/equipos')
+                return redirect('/archivo/{}'.format(equipo_id))
             except:
                 return redirect('/archivo/agregar_archivo/'+str(equipo_id)+'/?novalido')
     else:
@@ -42,7 +42,7 @@ def agregar_archivo(request, equipo_id):
     return render(request, "archivo/agregar_archivo.html",{'formulario':formulario})
 
 
-def handle_uploaded_file(f):  
-    with open('static/archivos/'+f.name, 'wb+') as destination:  
-        for chunk in f.chunks():
-            destination.write(chunk)  
+# def handle_uploaded_file(f):  
+#     with open('https://res.cloudinary.com/dc1hb2uev/image/upload/v1/ingenieria/archivos/'+f.name, 'wb+') as destination:  
+#         for chunk in f.chunks():
+#             destination.write(chunk)  

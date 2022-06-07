@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'cloudinary_storage',
+    # pip install django-cloudinary-storage
+    'cloudinary',
     'Integrante',
     'Login',
     'Archivo',
@@ -142,3 +145,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+
+
+MEDIA_URL = '/ingenieria/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME' : 'dc1hb2uev',
+    'API_KEY' : '488964977285115',
+    'API_SECRET' : 'YItk0lXN312ES68moMdRmidaD58'
+}

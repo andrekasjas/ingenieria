@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from Integrante.models import integrante
+
 from .models import archivo
 from Login.models import equipo
 from .forms import Formulario_archivos
@@ -23,14 +23,11 @@ def agregar_archivo(request, equipo_id):
         if (formulario.is_valid()):
             tarea = formulario.cleaned_data.get('tarea')
             tipo = formulario.cleaned_data.get('tipo')
-            autorr = formulario.cleaned_data.get('autor')
-            autors = integrante.objects.filter(id = autorr)
-            for a in autors:
-                autor = a
+            autor = formulario.cleaned_data.get('autor')
             estado = formulario.cleaned_data.get('estado')
             archivoc = request.FILES["url_archivo"]
-            # handle_uploaded_file(archivo)
-            url_archivo =  'archivos/'+archivoc.name
+            handle_uploaded_file(archivoc)
+            url_archivo =  'static/archivos/'+archivoc.name
             add = archivo.objects.create(nombre=url_archivo, tarea=tarea, tipo=tipo, equipo=holas, autor=autor, estado=estado)
             add.save()
 
@@ -46,6 +43,6 @@ def agregar_archivo(request, equipo_id):
 
 
 def handle_uploaded_file(f):  
-    with open('media/archivos/'+f.name, 'wb+') as destination:  
+    with open('static/archivos/'+f.name, 'wb+') as destination:  
         for chunk in f.chunks():
             destination.write(chunk)  

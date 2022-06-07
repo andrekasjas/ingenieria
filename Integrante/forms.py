@@ -7,5 +7,5 @@ class Formulario_integrante(forms.Form):
         ("2", "Scrum Master"),
         ("3", "Development Team"),
     )
-    nombre = forms.CharField(max_length=60, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    tipo = forms.ChoiceField(choices = OPTIONS)
+    nombre = forms.CharField(max_length=60, required=True, widget=forms.TextInput(attrs={'class': 'form-control','style':'width:300%'}))
+    tipo = forms.ChoiceField(choices = OPTIONS, widget=forms.Select(attrs={'class': 'form-control','style':'width:300%'}))

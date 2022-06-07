@@ -13,7 +13,7 @@ def agregar_integrante(request):
             try:
                 add = integrante.objects.create(nombre = nombre, tipo = tipo)
                 add.save()
-                return redirect('/equipos')
+                return redirect('/agregar_equipo')
             except:
                 return redirect('/integrante/?novalido')
     else:

@@ -1,10 +1,10 @@
 {% extends 'Autenticacion/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container" >
-        <div class="row">
-        <div class="col-6 text-center">
-            <h4 class="h4" style="color: cornsilk;">Agregar Archivo</h4>
+<div class="contenedorFormulario" >
+    <h4 class="h4 text-center" style="color: cornsilk; margin-top: 15px; text-transform: uppercase;">Agregar Archivo</h4>
+    <div class="row" style="color: white; position: relative; margin:0 25%;">
+        <div class="col-6 text-center"> 
             {% if 'novalido' in request.GET %}
                 <div class="alert alert-danger">A ocurrido un problema intenta de nuevo</div>
             {% endif %}
@@ -12,10 +12,11 @@
             <table style="color: cornsilk; position: relative; margin: 40px auto;" >
                 {{formulario.as_table}}
             </table>
-            <button type="submit" class="btn btn-outline-info" style=" border-color: #11c9cf !important;">Enviar</button>
+            
         </div>
     </div>
-    </div>
+    <button type="submit" class="btn btn-info btn-lg btn-block" style=" border-color: #11c9cf !important;">Enviar</button>
+</div>
     
     
 {% endblock  %}

@@ -60,5 +60,5 @@ def agregar_equipo(request):
             except:
                 return redirect('/contactame/?novalido')
     formulario = Formulario_equipo()
-
+    
     return render(request, "equipo/agregar_equipo.html",{'formulario':formulario})

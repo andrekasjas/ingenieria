@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'Integrante',
     'Login',
     'Archivo',
-    'Integrante',
 ]
 
 MIDDLEWARE = [
@@ -83,13 +83,13 @@ from decouple import config
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-    # 'default': dj_database_url.config(
-    #     default = config('DATABASE_URL')
-    # )
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    'default': dj_database_url.config(
+        default = config('DATABASE_URL')
+    )
 }
 
 
@@ -133,8 +133,6 @@ STATICFILES_DIRS = (
     BASE_DIR/ 'static',
 )
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

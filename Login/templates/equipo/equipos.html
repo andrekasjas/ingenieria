@@ -5,19 +5,25 @@
     <div class="container-fluid">
         <div class="row" style="margin-bottom:150px; ">
             {% for equipo in equipos %}
-            <a href="{% url 'archivo' equipo.id %}">
-            <div class="col-auto" style="margin-top: 2rem;">
-                <div class="card" style="width: 18rem; background-color: rgb(8, 60, 94);color: cornsilk;">
-                    <div class="card-body" style="text-align: center;">
-                        <h5 class="card-title h5">
-                            {{equipo.nombre|upper}}
-                        </h5>
-                        {% for integrant in equipo.integrante.all %}
-                            <p class="card-content">{{integrant.nombre}}</p>
-                        {% endfor %}
-                    </div>
+                <div class="col-auto" style="margin-top: 2rem;">
+                    <a href="{% url 'archivo' equipo.id %}">
+                        <div class="card camb-card" style="height: 18rem;">
+                            <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
+                                {{equipo.nombre|upper}}
+                            </div>
+                            <div class="card-body text-left">
+                                <div class="card-title">Integrantes:</div>
+                                <ul class="list-group list-scroll">
+                                    
+                                    {% for integrant in equipo.integrante.all %}
+                                        <li class="list-group-item" style="background: transparent;"><div class="cart-text">{{integrant.nombre}}({{integrant.tipo}})</div></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div></a>
+                
             {% endfor %}
         </div>
     </div>

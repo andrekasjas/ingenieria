@@ -11,7 +11,7 @@ OPTIONS_TIPO =(
         )
 OPTIONS_ESTADO =(
             ("Pendiente", "Pendiente"),
-            ("Ejecutandose", "Ejecutandose"),
+            ("Progreso", "Progreso"),
             ("Finalizado", "Finalizado"),
         )
 
@@ -27,10 +27,14 @@ def formulario_equipo(equipo_id):
     return Formulario_archivos
 
 class Formulario_archivos(forms.Form):
-        tarea = forms.CharField(max_length=60, required=True, widget=forms.TextInput(attrs={'class': 'form-control',}))
-        tipo = forms.ChoiceField(choices = OPTIONS_TIPO, widget = forms.Select(attrs={'class': 'form-control'}))
-        autor = forms.ModelChoiceField(queryset=integrante.objects.all().order_by("-created"), widget = forms.Select(attrs={'class': 'form-control'}))
-        estado = forms.ChoiceField(choices = OPTIONS_ESTADO, widget = forms.Select(attrs={'class': 'form-control'}))
-        url_archivo = forms.FileField(label="Archivo", required=False,widget = forms.Select(attrs={'class': 'form-control',}))
+    tarea = forms.CharField(max_length=60, required=True, widget=forms.TextInput(attrs={'class': 'form-control',}))
+    tipo = forms.ChoiceField(choices = OPTIONS_TIPO, widget = forms.Select(attrs={'class': 'form-control'}))
+    autor = forms.ModelChoiceField(queryset=integrante.objects.all().order_by("-created"), widget = forms.Select(attrs={'class': 'form-control'}))
+    estado = forms.ChoiceField(choices = OPTIONS_ESTADO, widget = forms.Select(attrs={'class': 'form-control'}))
+    url_archivo = forms.FileField(label="Archivo", required=False,widget = forms.Select(attrs={'class': 'form-control',}))
+
+
+class Formulario_editar_estado(forms.Form):
+    estado =  forms.ChoiceField(choices = OPTIONS_ESTADO, widget = forms.Select(attrs={'class': 'form-control'}))
     
  

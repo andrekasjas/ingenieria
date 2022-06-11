@@ -277,12 +277,26 @@ a.link:hover{
   color: aqua ;
 }
 
+
+
 .section-content{
   font-family: 'Lora' !important;
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 28px !important;
 }
+
+.camb-card{
+  width: 18rem; 
+  background-color: rgb(8, 60, 94);
+  color: white;
+}
+
+.camb-card:hover{
+  /* background-color: #008B8B; */
+  background-color: rgb(10, 71, 112);
+}
+
 
 ul.errorlist{
   padding-top: .75rem;
@@ -311,12 +325,12 @@ ul.errorlist{
 	font-weight: bold; /* Fuente en negrita o bold */
 	color: #ffffff; /* Color del texto */
 	border-radius: 5px; /* Borde del boton */
-	letter-spacing: 2px; /* Espacio entre letras */
+	letter-spacing: 1px; /* Espacio entre letras */
 	background-color: #3e41f3; /* Color de fondo */
-	padding: 18px 30px; /* Relleno del boton */
+	padding: 18px 20px; /* Relleno del boton */
 	position: fixed;
 	bottom: 50px;
-	right: -7rem;
+	right: -4rem;
 	transition: all 300ms ease 0ms;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	z-index: 99;
@@ -324,7 +338,7 @@ ul.errorlist{
 .btn-flotante:hover {
 	background-color: #3dcccc; /* Color de fondo al pasar el cursor */
 	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
-	transform: translateY(-7px) translateX(-7rem);
+	transform: translateY(-4px) translateX(-4rem);
 }
 @media only screen and (max-width: 600px) {
  	.btn-flotante {
@@ -334,3 +348,117 @@ ul.errorlist{
 		right: 20px;
 	}
 } 
+
+.list-scroll{
+  height: 9.4rem;
+  overflow: auto;
+  
+}
+
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFinalizado:hover {
+  background-color: #25D366;;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+.social-network a.icoWhatsapp:hover {
+  background-color: #25D366;
+}
+.social-network a.icoMessenger:hover {
+  background-color: #00B2FF;
+}
+
+.social-network a.icoFinalizado:hover i,
+.social-network a.icoMessenger:hover i,
+.social-network a.icoWhatsapp.hover i,
+.social-network a.icoLinkedin:hover i {
+  color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 10px auto 10px auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: white;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.social-network a {
+  background-color: #F9F9F9;
+}
+
+.maquina{
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 33ch;
+
+  animation: typing 2s steps(12),
+  blink .09s infinite step-end alternate;
+
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from { width:0}
+}
+
+@keyframes blink {
+  1% { border-color: transparent;}
+}

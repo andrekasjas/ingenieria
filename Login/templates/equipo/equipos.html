@@ -2,29 +2,41 @@
 {% load static %}
 {% block content %}
 <a href="{% url 'agregar_equipo' %}" class="btn-flotante">Agregar</a>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row" style="margin-bottom:150px; ">
             {% for equipo in equipos %}
-                <div class="col-auto" style="margin-top: 2rem;">
-                    <a href="{% url 'archivo' equipo.id %}">
-                        <div class="card camb-card" style="height: 18rem;">
-                            <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
-                                {{equipo.nombre|upper}}
-                            </div>
-                            <div class="card-body text-left">
-                                <div class="card-title">Integrantes:</div>
-                                <ul class="list-group list-scroll">
-                                    
-                                    {% for integrant in equipo.integrante.all %}
-                                        <li class="list-group-item" style="background: transparent;"><div class="cart-text">{{integrant.nombre}}({{integrant.tipo}})</div></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+            <div class="col-auto" style="margin-top: 2rem;">
+                <a href="{% url 'archivo' equipo.id %}" >
+                    <div class="card camb-card" style="height: 18rem;">
+                        <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
+                            {{equipo.nombre|upper}}
                         </div>
-                    </a>
-                </div>
+                        <div class="card-body text-left">
+                            <div class="card-title">Integrantes:</div>
+                            <ul class="list-group list-scroll">
+                                
+                                {% for integrant in equipo.integrante.all %}
+                                    <li class="list-group-item" style="background: transparent;"><div class="cart-text">{{integrant.nombre}}({{integrant.tipo}})</div></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
                 
             {% endfor %}
+            <div class="col-auto" style="margin-top: 2rem;">
+                <a href="{% url 'agregar_equipo' %}" >
+                    <div class="card camb-card" style="height: 18rem;">
+                        <!-- <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
+                            AGREGAR
+                        </div> -->
+                        <div class="card-body text-center"  style="margin: 5.5rem 0; color: gray;">
+                            <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock  %}

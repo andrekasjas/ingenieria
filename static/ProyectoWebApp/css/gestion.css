@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(231, 88, 40, 0.65));
+  background: linear-gradient(rgb(8, 60, 94), rgb(6, 24, 51));
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -80,7 +80,7 @@ p {
 }
 
 #mainNav {
-  background-color: darkcyan;
+  background-color: rgb(6, 24, 51);
   font-family: 'Raleway';
 }
 
@@ -237,7 +237,7 @@ body {
   margin-bottom: 40px;
 }
 footer {
-  background-color: rgba(0, 139, 139, 0.61);
+  background-color: rgba(0, 139, 139, 0.24);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -270,7 +270,7 @@ footer {
 
 a.link{
   text-decoration: underline;
-  color: rgba(49, 49, 49, 0.897);
+  margin-bottom: 3px;
 }
 
 a.link:hover{
@@ -289,6 +289,7 @@ a.link:hover{
 .camb-card{
   width: 18rem; 
   background-color: rgb(8, 60, 94);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
@@ -305,13 +306,14 @@ ul.errorlist{
 }
 
 .contenedorFormulario{
-  background-color: darkcyan;
   width: 50%;
   margin: 10px auto;
   border-radius: 10px;
-  padding: 1px 0px;
+  padding: 1rem 0px;
   position: static; 
   margin-bottom: 5rem;
+  background-color: rgb(8, 60, 94);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 }
 .sub{
   width: 150px;
@@ -323,10 +325,10 @@ ul.errorlist{
 	font-size: 16px; /* Cambiar el tamaño de la tipografia */
 	text-transform: uppercase; /* Texto en mayusculas */
 	font-weight: bold; /* Fuente en negrita o bold */
-	color: #ffffff; /* Color del texto */
+	color: white; /* Color del texto */
 	border-radius: 5px; /* Borde del boton */
 	letter-spacing: 1px; /* Espacio entre letras */
-	background-color: #3e41f3; /* Color de fondo */
+	background-color: #17a2b8; /* Color de fondo */
 	padding: 18px 20px; /* Relleno del boton */
 	position: fixed;
 	bottom: 50px;
@@ -349,11 +351,44 @@ ul.errorlist{
 	}
 } 
 
-.list-scroll{
+/* .list-scroll{
   height: 9.4rem;
   overflow: auto;
   
+} */
+
+/* scroll */
+
+.list-scroll{
+  height: 9.4rem;
+  overflow: auto;
 }
+.list-scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.list-scroll::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.list-scroll::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.list-scroll::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.list-scroll::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.list-scroll::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
 
 
 ul.social-network {

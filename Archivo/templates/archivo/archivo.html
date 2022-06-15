@@ -1,14 +1,12 @@
 {% extends 'Autenticacion/base.html' %}
 {% load static %}
 {% block content %}
-<a href="{% url 'agregar_archivo' equipo %}" class="btn-flotante">Archivo</a>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >                      
-    <div class="container-fluid">
+<a href="{% url 'agregar_archivo' equipo %}" class="btn-flotante">Archivo</a>                 
+    <div class="container">
         <div class="row" style="margin-bottom:150px; ">
             {% for archivo in archivoss %}
                 <div class="col-auto" style="margin-top: 2rem;">
-                    
-                    <div class="card camb-card">
+                    <div class="card camb-card" style="height: 20rem;">
                             <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
                                 {{archivo.tarea|upper}}
                             </div>
@@ -62,6 +60,17 @@
                 </div>
                 
             {% endfor %}
+            
+            <div class="col-auto" style="margin-top: 2rem;">
+                <a href="{% url 'agregar_archivo' equipo %}" >
+                    <div class="card camb-card" style="height: 20rem;">
+                        <div class="card-body text-center"  style="margin: 5.5rem 0; color: gray;">
+                            <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    
+                </a>
+            </div>
         </div>
     </div>
 {% endblock  %}

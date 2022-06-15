@@ -8,7 +8,7 @@
         <div class="alert alert-danger">A ocurrido un problema intenta de nuevo</div>
     {% endif %}
     
-    <form action="" enctype="multipart/form-data" method="POST" style="color: white; position: relative; margin:15px 20%;">{% csrf_token %}
+    <form action="" enctype="multipart/form-data" method="POST" style="color: white; position: relative; margin:15px 10%;">{% csrf_token %}
         {{formulario|crispy}}
     <button type="submit" class="btn btn-info btn-lg btn-block" style=" border-color: #11c9cf !important;">Continuar</button>
 </div>

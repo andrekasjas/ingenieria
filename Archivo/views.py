@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import archivo
 from Login.models import equipo
-from .forms import formulario_equipo, Formulario_archivos, Formulario_editar_estado
+from .forms import formulario_equipo, Formulario_archivos, Formulario_editar, Formulario_editar_estado
 from django.contrib.auth.decorators import login_required
+import cloudinary
 
 @login_required
 def archivos(request, equipo_id):
@@ -38,19 +39,25 @@ def agregar_archivo(request, equipo_id):
     return render(request, "archivo/agregar_archivo.html",{'formulario':formulario})
 
 def editar_estado(request, equipo_id, archivo_id):
+    archivos = archivo.objects.get(id = archivo_id)
     if (request.method == "POST"):
-        formulario = Formulario_editar_estado(request.POST)
+        formulario = Formulario_editar_estado(request.POST, request.FILES)
         if (formulario.is_valid()):
             estado = formulario.cleaned_data.get('estado')
-            archivos = archivo.objects.get(id = archivo_id)
+            archivoc = request.FILES["url_archivo"]
+            
+            cloudinary.uploader.destroy(str(archivos.nombre))
             archivos.estado = estado
+            archivos.nombre = archivoc
             archivos.save()
-            try:
+
+            try:              
                 return redirect('/archivo/{}'.format(str(equipo_id)))
-            except:
+            except ValueError:
+                print(ValueError)
                 return redirect('/archivo/editar_estado/{}/{}/?novalido'.format(str(equipo_id),str(archivo_id)))
     else:
-        formulario = Formulario_editar_estado()
+        formulario = Formulario_editar(archivos.estado)
 
     return render(request, "archivo/editar_estado.html",{'formulario':formulario})
 

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     # pip install django-cloudinary-storage
     'cloudinary',
-    'Integrante',
+    # 'Integrante',
     'Login',
     'Archivo',
 ]

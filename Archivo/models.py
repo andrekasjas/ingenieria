@@ -1,6 +1,6 @@
 from django.db import models
 from Login.models import equipo
-from Integrante.models import integrante
+from Login.models import integrante
 
 # Create your models here. 
     

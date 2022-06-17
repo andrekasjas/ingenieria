@@ -306,7 +306,7 @@ ul.errorlist{
 }
 
 .contenedorFormulario{
-  width: 50%;
+  width: 35rem;
   margin: 10px auto;
   border-radius: 10px;
   padding: 1rem 0px;
@@ -314,6 +314,7 @@ ul.errorlist{
   margin-bottom: 5rem;
   background-color: rgb(8, 60, 94);
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 .sub{
   width: 150px;

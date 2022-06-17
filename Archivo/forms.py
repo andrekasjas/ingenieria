@@ -1,5 +1,5 @@
 from django import forms
-from Integrante.models import integrante
+from Login.models import integrante
 from Login.models import equipo
 
 OPTIONS_TIPO =(

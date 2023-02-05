@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}>
     <div class="contenedorFormulario">
-        <form action="" method="post" style="color: white; position: relative; margin:15px 20%;">{% csrf_token %}
+        <form action="" method="post" style="color: white; position: relative; margin:15px 10%;">{% csrf_token %}
             {{form|crispy}}
             <div style="text-align: center;">
                 <button type="submit" class="btn btn-success btn-block">Registrarse</button>

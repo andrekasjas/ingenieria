@@ -5,6 +5,13 @@ from .models import *
 class equipo_admin(admin.ModelAdmin):
     readonly_fields = ("created","updated")
 
+class integrante_admin(admin.ModelAdmin):
+    readonly_fields = ("created","updated")
+ 
 
+
+
+# admin.site.register(tipo_integrante, tipo_integrante_admin)
+admin.site.register(integrante, integrante_admin)
 admin.site.register(equipo, equipo_admin)
 

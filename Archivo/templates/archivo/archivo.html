@@ -1,26 +1,76 @@
 {% extends 'Autenticacion/base.html' %}
 {% load static %}
 {% block content %}
-<a href="{% url 'agregar_archivo' equipo %}" class="btn-flotante">Archivo</a>
-    <div class="container-fluid">
+<!-- <a href="{% url 'agregar_archivo' equipo %}" class="btn-flotante">Archivo</a>                  -->
+    <div class="container">
         <div class="row" style="margin-bottom:150px; ">
             {% for archivo in archivoss %}
-            <div class="col-auto" style="margin-top: 2rem;">
-                <div class="card" style="width: 18rem; background-color: rgb(8, 60, 94);color: cornsilk;">
-                    <div class="card-body" style="text-align: center;">
-                        <h5 class="card-title h5">
-                            {{archivo.tarea|upper}}
-                        </h5>
-                        <p class="card-content">{{archivo.tipo}}</p>
-                        <p class="card-content">{{archivo.autor}}</p>
-                        <p class="card-content">{{archivo.estado}}</p>
-                        <p class="card-content">{{archivo.created}}</p>
-                        <p class="card-content">{{archivo.updated}}</p>
-                        <a class="btn btn-outline-info" href="{{archivo.nombre.url}}" download="archivo" role="button">Download</a>
-                    </div>
+                <div class="col-auto" style="margin-top: 2rem;">
+                    <div class="card camb-card" style="height: 20rem;">
+                            <div class="card-header text-center" style="box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);" >
+                                {{archivo.tarea|upper}}
+                            </div>
+                            <div class="card-body text-left">
+                                <ul class="list-group">
+                                    <li class="list-group">
+                                        <div class="cart-text">Tipo: {{archivo.tipo}}</div>
+                                        {% if archivo.estado == 'Pendiente' %}
+                                            <ul style="position: absolute; transform: translateX(13.5rem) translateY(-4.5rem);" class="social-network social-circle">
+                                                <li ><a style="background: #ff9966; " title="Finalizado"><i class="fa fa-exclamation"></i></a></li>
+                                            </ul>
+                                        {% elif archivo.estado == 'Finalizado' %}
+                                            <ul style="position: absolute; transform: translateX(13.5rem) translateY(-4.5rem);" class="social-network social-circle">
+                                                <li ><a style="background: #25D366; " title="Finalizado"><i class="fa fa-check"></i></a></li>
+                                            </ul>
+                                        {% else %}
+                                            <ul style="position: absolute; transform: translateX(13.5rem) translateY(-4.5rem);" class="social-network social-circle">
+                                                <li ><a style="background: #3b83bd; " title="Finalizado"><i class="fa fa-play"></i></a></li>
+                                            </ul>
+                                        {% endif %}
+                                        	
+                                    </li>
+                                    <li class="list-group">
+                                        <div class="cart-text">Autor: {{archivo.autor}}</div>
+                                    </li>
+                                    <li class="list-group">
+                                        <div class="cart-text">Estado: {{archivo.estado}}</div>
+                                        
+                                    </li>
+                                    <li class="list-group">
+                                        <div class="cart-text">Creado: {{archivo.created}}</div>
+                                    </li>
+                                    <li class="list-group">
+                                        <div class="cart-text">Ult. actualizado: {{archivo.updated}}</div>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <div class="card-footer">
+                                <tr>
+                                    <th>
+                                        <a class="btn btn-outline-info" style="display: inline-block;" href="{{archivo.nombre.url}}" target="_blank" role="button">Archivo</a>
+                                    </th>
+                                    <th >
+                                        <a class="btn btn-success float-right" style="display: inline-block;" href="{% url 'editar_estado' equipo archivo.id %}" role="button">Estado</a>
+                                    </th>
+                                </tr>
+                                
+                            </div>
+                        </div>
                 </div>
-            </div></a>
+                
             {% endfor %}
+            
+            <div class="col-auto" style="margin-top: 2rem;">
+                <a href="{% url 'agregar_archivo' equipo %}" >
+                    <div class="card camb-card" style="height: 20rem;">
+                        <div class="card-body text-center"  style="margin: 5.5rem 0; color: gray;">
+                            <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    
+                </a>
+            </div>
         </div>
     </div>
 {% endblock  %}

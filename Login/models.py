@@ -1,8 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-from Integrante.models import integrante
+# from Integrante.models import integrante
 # Create your models here.
 
+class integrante(models.Model):
+    nombre = models.CharField(max_length=60)
+    tipo = models.CharField(max_length=60)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'integrantes'
+        verbose_name_plural = 'integrante'
+
+    def __str__(self):
+        return self.nombre
 
 
 class equipo(models.Model):
